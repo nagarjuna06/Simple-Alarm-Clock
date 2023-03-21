@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alarm</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="bg-container">
+      <div class="alarm">
+        <audio src="./assets/Alarm Alarm.mp3" id="ringtone" loop></audio>
+        <img
+          src="https://cdn-icons-png.flaticon.com/512/3185/3185722.png"
+          alt="alarm-img"
+          class="alarm-img"
+        />
+        <h1 class="time"></h1>
+        <form class="form">
+          <select name="hours" id="hours">
+            <option value="0">Hours</option>
+          </select>
+          <select name="minutes" id="minutes">
+            <option value="0">Minutes</option>
+          </select>
+          <select name="seconds" id="seconds">
+            <option value="0">Seconds</option>
+          </select>
+          <select name="state">
+            <option value="AM">AM</option>
+            <option value="PM">PM</option>
+          </select>
+          <br />
+          <button class="submit-btn" id="submit">SET ALARM</button>
+        </form>
+      </div>
+    </div>
+  </body>
+  <script src="./script.js"></script>
+</html>
