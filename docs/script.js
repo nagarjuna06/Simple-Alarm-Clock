@@ -1,11 +1,15 @@
 const time = document.querySelector('.time');
 const alarmImg = document.querySelector('.alarm-img');
 const ringtone = document.getElementById('ringtone');
-
 let setAlarmTime = null;
+let vibrateInterval;
+
 const RingTheAlarm = () => {
     alarmImg.classList.replace('alarm-img', 'img-animation');
     ringtone.play()
+    vibrateInterval = setInterval(() => {
+        window.navigator.vibrate([700, 200])
+    }, 1000)
 }
 
 
@@ -46,7 +50,7 @@ for (let i = 1; i <= 12; i++) {
 }
 
 const minutesDropdown = document.getElementById('minutes');
-for (let i = 0; i <= 60; i++) {
+for (let i = 0; i < 60; i++) {
     const option = document.createElement('option');
     const value = i < 10 ? `0${i}` : i
     option.textContent = value;
@@ -55,7 +59,7 @@ for (let i = 0; i <= 60; i++) {
 }
 
 const secondsDropdown = document.getElementById('seconds');
-for (let i = 0; i <= 60; i++) {
+for (let i = 0; i < 60; i++) {
     const option = document.createElement('option');
     const value = i < 10 ? `0${i}` : i
     option.textContent = value;
@@ -86,6 +90,7 @@ const getFormData = (e) => {
         e.target.submit.textContent = 'SET ALARM'
         alarmImg.classList.replace('img-animation', 'alarm-img')
         ringtone.pause()
+        clearInterval(vibrateInterval)
     }
 }
 form.addEventListener('submit', getFormData);
