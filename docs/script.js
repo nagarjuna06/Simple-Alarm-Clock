@@ -26,7 +26,8 @@ const currentTime = () => {
     else {
         state = 'AM'
     }
-    hours = hours > 12 ? hours - 12 : hours
+    
+    hours = hours===0 ?12 : hours>12?hours-12:hours;
     hours = hours < 10 ? `0${hours}` : hours
     let minutes = date.getMinutes()
     minutes = minutes < 10 ? `0${minutes}` : minutes
